@@ -61,8 +61,9 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          # FIX: Changed 'format=true,prefix=' to 'format=%.7s' to get the 7-character short SHA
-          type=sha,format=%.7s
+          # FIX: The 'format=%.7s' was causing a parsing error. We are reverting to the default 'type=sha'
+          # which uses the full commit hash. This avoids the format parsing issue.
+          type=sha
           type=raw,value=latest
 
     - name: 🏗️ Build and Push Docker image
