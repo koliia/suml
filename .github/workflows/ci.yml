@@ -9,6 +9,11 @@ on:
 
 jobs:
   build_and_test:
+    # FIX: Add permissions block to grant write access for pushing packages to GHCR.
+    permissions:
+      contents: read
+      packages: write
+
     # Use a standard Ubuntu runner environment
     runs-on: ubuntu-latest
 
@@ -61,7 +66,7 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          # FIX: The 'format=%.7s' was causing a parsing error. We are reverting to the default 'type=sha'
+          # The 'format=%.7s' was causing a parsing error. Reverting to the default 'type=sha'
           # which uses the full commit hash. This avoids the format parsing issue.
           type=sha
           type=raw,value=latest
