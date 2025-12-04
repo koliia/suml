@@ -1,0 +1,21 @@
+# .dockerignore
+# Ignore Python cache and environment files
+__pycache__
+*.pyc
+.venv
+venv
+.env
+.idea
+.vscode
+
+# Ignore build artifacts
+dist
+*.egg-info
+
+# Ignore local directories
+.git
+.gitignore
+
+# Ignore model file *if* it was placed elsewhere,
+# but for this project, we assume it's needed:
+# model.joblib  <-- DO NOT UNCOMMENT THIS for this project
