@@ -1,5 +1,3 @@
-# .github/workflows/ci.yml
-
 name: CI/CD Pipeline
 
 # Run the workflow on every push to any branch
@@ -40,9 +38,10 @@ jobs:
         pip install pytest joblib
 
     - name: 🚀 Run tests with pytest
-      # This assumes the model.joblib file is available for the test to run predict()
+      # The PYTHONPATH issue is now handled by tests/conftest.py
+      # We just run pytest as usual, instructing it where to find the tests.
       run: |
-        PYTHONPATH=. pytest tests/test_app.py
+        pytest tests/test_app.py
 
     # ----------------------------------------------------
     # 🐳 Docker Build and Push Phase
