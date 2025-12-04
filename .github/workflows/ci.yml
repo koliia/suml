@@ -61,7 +61,8 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=sha,format=true,prefix=
+          # FIX: Changed 'format=true,prefix=' to 'format=%.7s' to get the 7-character short SHA
+          type=sha,format=%.7s
           type=raw,value=latest
 
     - name: 🏗️ Build and Push Docker image
