@@ -11,7 +11,7 @@ sepal_width = st.number_input("Sepal Width (cm)", min_value=0.0, max_value=10.0,
 petal_length = st.number_input("Petal Length (cm)", min_value=0.0, max_value=10.0, value=1.4)
 petal_width = st.number_input("Petal Width (cm)", min_value=0.0, max_value=10.0, value=0.2)
 
-#some changes
+#some changesqeqwe
 # Predict button
 if st.button("Predict"):
     features = [sepal_length, sepal_width, petal_length, petal_width]
